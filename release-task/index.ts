@@ -2,20 +2,20 @@ import tl = require('azure-pipelines-task-lib/task');
 const { exec } = require("child_process");
 
  async function run() {
-    const licenseKey: string | undefined = tl.getInput('license-key', true);
-    let parapyPyPiAddress: string | undefined = tl.getInput('parapy-pypi-address', false);
+    const licenseKey: string | undefined = tl.getInput('licenseKey', true);
+    let parapyPyPiAddress: string | undefined = tl.getInput('parapyPyPIAddress', false);
     parapyPyPiAddress = parapyPyPiAddress ? parapyPyPiAddress : "pypi.parapy.nl";
-    const parapyPyPIUsername: string | undefined = tl.getInput('parapy-pypi-user-name', true);
-    const parapyPyPIPassword: string | undefined = tl.getInput('parapy-pypi-password', true);
-    const parapyCloudAddress: string | undefined = tl.getInput('parapy-cloud-address');
-    const serviceAccountIdentifier: string | undefined = tl.getInput('service-account-identifier', true);
-    const serviceAccountSecret: string | undefined = tl.getInput('service-account-secret', true);
-    const parapyAppId: string | undefined = tl.getInput('parapy-app-id', true);
-    const parapyAppVersion: string | undefined = tl.getInput('parapy-app-version', true);
+    const parapyPyPIUsername: string | undefined = tl.getInput('parapyPyPIUsername', true);
+    const parapyPyPIPassword: string | undefined = tl.getInput('parapyPyPIPassword', true);
+    const parapyCloudAddress: string | undefined = tl.getInput('parapyCloudAddress');
+    const serviceAccountIdentifier: string | undefined = tl.getInput('serviceAccountIdentifier', true);
+    const serviceAccountSecret: string | undefined = tl.getInput('serviceAccountSecret', true);
+    const parapyAppId: string | undefined = tl.getInput('parapyAppId', true);
+    const parapyAppVersion: string | undefined = tl.getInput('parapyAppVersion', true);
     const deploySerialized: string | undefined = tl.getInput('deploy', true);
     const deploy = deploySerialized === "true";
 
-    const installPythonSerialized: string | undefined = tl.getInput('install-python', false);
+    const installPythonSerialized: string | undefined = tl.getInput('installPython', false);
     const installPython = installPythonSerialized === "true";
     // this task assumes the ParaPy application code is already cloned and resides in the current folder
 

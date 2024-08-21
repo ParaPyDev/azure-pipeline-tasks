@@ -2,14 +2,14 @@ import tl = require('azure-pipelines-task-lib/task');
 const { exec } = require("child_process");
 
  async function run() {
-    const licenseKey: string | undefined = tl.getInput('license-key', true);
-    const licenseCertificate: string | undefined = tl.getInput('license-certificate', true)
-    let parapyPyPiAddress: string | undefined = tl.getInput('parapy-pypi-address', false);
+    const licenseKey: string | undefined = tl.getInput('licenseKey', true);
+    const licenseCertificate: string | undefined = tl.getInput('licenseCertificate', true)
+    let parapyPyPiAddress: string | undefined = tl.getInput('parapyPyPIAddress', false);
     parapyPyPiAddress = parapyPyPiAddress ? parapyPyPiAddress : "pypi.parapy.nl";
-    const parapyPyPIUsername: string | undefined = tl.getInput('parapy-pypi-user-name', true);
-    const parapyPyPIPassword: string | undefined = tl.getInput('parapy-pypi-password', true);
+    const parapyPyPIUsername: string | undefined = tl.getInput('parapyPyPIUsername', true);
+    const parapyPyPIPassword: string | undefined = tl.getInput('parapyPyPIPassword', true);
 
-    const installPythonSerialized: string | undefined = tl.getInput('install-python', false);
+    const installPythonSerialized: string | undefined = tl.getInput('installPython', false);
     const installPython = installPythonSerialized === "true";
     // this task assumes the ParaPy application code is already cloned and resides in the current folder
 

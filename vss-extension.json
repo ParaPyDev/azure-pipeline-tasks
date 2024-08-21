@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "release-task",
     "name": "ParaPy Cloud Test and Release Tools",
-    "version": "0.0.10",
+    "version": "0.0.13",
     "publisher": "ParaPy",
     "targets": [
         {
@@ -14,6 +14,24 @@
     ],
     "icons": {
         "default": "images/parapy.jpg"        
+    },
+    "branding": {
+        "theme": "light"
+    },
+    "content": {
+        "details": {
+            "path": "README.md"
+        }
+    },
+    "links": {
+        "parapy": {
+            "uri": "https://parapy.nl"
+        }
+    },
+    "tags": ["__DoNotDownload"],
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/parapydev/azure-pipeline-tasks"
     },
     "files": [
         {
