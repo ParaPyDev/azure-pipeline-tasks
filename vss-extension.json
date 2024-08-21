@@ -1,0 +1,48 @@
+{
+    "manifestVersion": 1,
+    "id": "release-task",
+    "name": "ParaPy Cloud Test and Release Tools",
+    "version": "0.0.10",
+    "publisher": "ParaPy",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "icons": {
+        "default": "images/parapy.jpg"        
+    },
+    "files": [
+        {
+            "path": "release-task"
+        },
+        {
+            "path": "test-task"
+        }
+    ],
+    "contributions": [
+ {
+            "id": "release-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "release-task"
+            }
+        },
+ {
+            "id": "test-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "test-task"
+            }
+        }
+    ]
+}
