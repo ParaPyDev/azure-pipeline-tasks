@@ -1,8 +1,8 @@
 {
     "manifestVersion": 1,
-    "id": "release-task",
-    "name": "ParaPy Cloud Test and Release Tools",
-    "version": "0.0.13",
+    "id": "parapy-tools",
+    "name": "ParaPy Cloud Tools",
+    "version": "0.0.1",
     "publisher": "ParaPy",
     "targets": [
         {
