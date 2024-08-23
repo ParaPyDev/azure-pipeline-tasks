@@ -33,7 +33,7 @@ const { exec } = require("child_process");
             'sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 5DC22404A6F9F1CA',
             'sudo apt-get update',
             'sudo apt-get install -y --no-install-recommends build-essential cmake libdouble-conversion3 libgfortran4 libglu1-mesa libopengl0 libqt5core5a libqt5gui5 libqt5help5 libqt5opengl5 libqt5printsupport5 libqt5svg5 libqt5x11extras5 libqt5xml5 libsdl1.2debian libsdl2-2.0-0 libssl-dev libssl1.1 libtbb2',
-            `pip install parapy-cloud-cli --index-url https://${ parapyPyPIUsername }:${ parapyPyPIPassword }${ parapyPyPiAddress }}/simple/`,
+            `pip install parapy-cloud-cli --index-url https://${ parapyPyPIUsername }:${ parapyPyPIPassword }${ parapyPyPiAddress }/simple/`,
             `parapy cloud app release . --url ${ parapyCloudAddress } --client-id ${ serviceAccountIdentifier } 
             --secret ${ serviceAccountSecret } --version ${ parapyAppVersion } --id ${ parapyAppId } ${deploy ? " --deploy": "" }`
         ]]);
