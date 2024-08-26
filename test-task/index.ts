@@ -10,18 +10,10 @@ const { exec } = require("child_process");
     const parapyPyPIPassword: string | undefined = tl.getInput('parapyPyPIPassword', true);
 
     const installPythonSerialized: string | undefined = tl.getInput('installPython', false);
-    const installPython = installPythonSerialized === "true";
     // this task assumes the ParaPy application code is already cloned and resides in the current folder
+    // and that python is installed on the machine (for example with the UsePythonVersion task: https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/use-python-version-v0)
 
-    let preSetup: string[] = []
-    if (installPython) {
-        preSetup = [
-            'sudo apt-get update',
-            'sudo apt-get install python3.11'
-        ];
-    }
-
-    await runCommandsOrThrow([...preSetup, 
+    await runCommandsOrThrow([
         ...['sudo hostname ' + licenseKey,
         'pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-20.04 "wxPython~=4.2.1"',
         'sudo apt-get update',
