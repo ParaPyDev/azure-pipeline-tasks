@@ -1,11 +1,14 @@
-# ParaPy Azure Pipeline task for testing and releasing applications
+# ParaPy Cloud Tools extension
 
 ![ParaPy Logo](https://s3-eu-west-1.amazonaws.com/parapy-cache/wp-content/uploads/2016/12/22134017/Logo_margin.png)
 
-These Azure Pipeline tasks are provided by [ParaPy](https://parapy.nl) to aid in implementing Continuous integration and deployment.
+This Azure extension provides Azure Pipeline tasks, provided by [ParaPy](https://parapy.nl), to aid in implementing Continuous integration and deployment for your ParaPy applications.
 
 ## Usage
 
+- Request the `ParaPy Cloud Tools` extension through [support@parapy.nl](support@parapy.nl) or find the ParaPy Cloud Tools extension in the Marketplace.
+- Accept the `ParaPy Cloud Tools` extension in Azure Devops.
+- Utilize the provided tasks in your Azure pipelines.
 
 ## Development
 
