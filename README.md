@@ -7,7 +7,6 @@ These Azure Pipeline tasks are provided by [ParaPy](https://parapy.nl) to aid in
 ## Usage
 
 
-
 ## Development
 
 Prerequisites:
