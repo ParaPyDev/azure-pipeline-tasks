@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "parapy-tools",
     "name": "ParaPy Cloud Tools",
-    "version": "0.0.33",
+    "version": "0.0.40",
     "publisher": "ParaPy",
     "targets": [
         {
@@ -20,7 +20,7 @@
     },
     "content": {
         "details": {
-            "path": "README.md"
+            "path": "MARKETPLACE.md"
         }
     },
     "links": {

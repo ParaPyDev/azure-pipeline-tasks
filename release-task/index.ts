@@ -11,16 +11,16 @@ const { exec } = require("child_process");
     const serviceAccountSecret: string | undefined = tl.getInput('serviceAccountSecret', true);
     const parapyAppId: string | undefined = tl.getInput('parapyAppId', true);
     const parapyAppVersion: string | undefined = tl.getInput('parapyAppVersion', true);
-    const deploySerialized: string | undefined = tl.getInput('deploy', true);
-    const deploy = deploySerialized === "true";
+    const deployBox: boolean | undefined = tl.getBoolInput('deploy', false);
+    const deploy = !!deployBox;
     let parapyCloudCLIVersion: string | undefined = tl.getInput('parapyCloudCLIVersion', false);
-    parapyCloudCLIVersion = parapyCloudCLIVersion ? parapyCloudCLIVersion : "0.13"
+    parapyCloudCLIVersion = parapyCloudCLIVersion ? "~=" + parapyCloudCLIVersion : ""
     // this task assumes the ParaPy application code is already cloned and resides in the current folder
     // and that python is installed on the machine (for example with the UsePythonVersion task: https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/use-python-version-v0)
 
     await runCommandsOrThrow([
             'pip install --upgrade pip',
-            `pip install parapy-cloud-cli~=${parapyCloudCLIVersion} --index-url https://${ parapyPyPIUsername }:${ parapyPyPIPassword }@${ parapyPyPIAddress }/simple/`,
+            `pip install parapy-cloud-cli${parapyCloudCLIVersion} --index-url https://${ parapyPyPIUsername }:${ parapyPyPIPassword }@${ parapyPyPIAddress }/simple/`,
             `parapy cloud app release . --url ${ parapyCloudAddress } --client-id ${ serviceAccountIdentifier } --secret ${ serviceAccountSecret } --version ${ parapyAppVersion } --id ${ parapyAppId } ${deploy ? " --deploy": "" }`
         ]);
  }
