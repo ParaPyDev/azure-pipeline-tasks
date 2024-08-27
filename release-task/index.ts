@@ -13,20 +13,10 @@ const { exec } = require("child_process");
     const parapyAppVersion: string | undefined = tl.getInput('parapyAppVersion', true);
     const deploySerialized: string | undefined = tl.getInput('deploy', true);
     const deploy = deploySerialized === "true";
-
-    const installPythonSerialized: string | undefined = tl.getInput('installPython', false);
-    const installPython = installPythonSerialized === "true";
     // this task assumes the ParaPy application code is already cloned and resides in the current folder
+    // and that python is installed on the machine (for example with the UsePythonVersion task: https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/use-python-version-v0)
 
-    let preSetup: string[] = []
-    if (installPython) {
-        preSetup = [
-            'sudo apt-get update',
-            'sudo apt-get install python3.11'
-        ];
-    }
-
-    await runCommandsOrThrow([...preSetup, 
+    await runCommandsOrThrow([
         ...[
             'pip install --upgrade pip',
             `pip install parapy-cloud-cli --index-url https://${ parapyPyPIUsername }:${ parapyPyPIPassword }@${ parapyPyPiAddress }/simple/`,
