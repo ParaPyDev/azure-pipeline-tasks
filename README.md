@@ -8,9 +8,9 @@ This Azure extension provides Azure Pipeline tasks, provided by [ParaPy](https:/
 
 - Request the `ParaPy Cloud Tools` extension through [support@parapy.nl](support@parapy.nl) or find the ParaPy Cloud Tools extension in the Marketplace.
 - Accept the `ParaPy Cloud Tools` extension in Azure Devops.
-- Utilize the provided tasks in your Azure pipelines.
+- Utilize the provided tasks in your Azure pipelines. Please run on a `ubuntu 20.4` machine.
 
-## Development
+## Development of the extension
 
 Prerequisites:
 
