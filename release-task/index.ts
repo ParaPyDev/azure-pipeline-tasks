@@ -9,10 +9,9 @@ const { exec } = require("child_process");
     const parapyCloudAddress: string | undefined = tl.getInput('parapyCloudAddress');
     const serviceAccountIdentifier: string | undefined = tl.getInput('serviceAccountIdentifier', true);
     const serviceAccountSecret: string | undefined = tl.getInput('serviceAccountSecret', true);
-    const parapyAppId: string | undefined = tl.getInput('parapyAppId', true);
+    const parapyAppIdentifier: string | undefined = tl.getInput('parapyAppIdentifier', true);
     const parapyAppVersion: string | undefined = tl.getInput('parapyAppVersion', true);
-    const deployBox: boolean | undefined = tl.getBoolInput('deploy', false);
-    const deploy = !!deployBox;
+    const deploy: boolean = tl.getBoolInput('deploy', false);
     let parapyCloudCLIVersion: string | undefined = tl.getInput('parapyCloudCLIVersion', false);
     parapyCloudCLIVersion = parapyCloudCLIVersion ? "~=" + parapyCloudCLIVersion : ""
     // this task assumes the ParaPy application code is already cloned and resides in the current folder
@@ -21,7 +20,7 @@ const { exec } = require("child_process");
     await runCommandsOrThrow([
             'pip install --upgrade pip',
             `pip install parapy-cloud-cli${parapyCloudCLIVersion} --index-url https://${ parapyPyPIUsername }:${ parapyPyPIPassword }@${ parapyPyPIAddress }/simple/`,
-            `parapy cloud app release . --url ${ parapyCloudAddress } --client-id ${ serviceAccountIdentifier } --secret ${ serviceAccountSecret } --version ${ parapyAppVersion } --id ${ parapyAppId } ${deploy ? " --deploy": "" }`
+            `parapy cloud app release . --url ${ parapyCloudAddress } --client-id ${ serviceAccountIdentifier } --secret ${ serviceAccountSecret } --version ${ parapyAppVersion } --id ${ parapyAppIdentifier } ${deploy ? " --deploy": "" }`
         ]);
  }
 

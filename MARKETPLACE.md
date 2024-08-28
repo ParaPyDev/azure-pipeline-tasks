@@ -81,7 +81,7 @@ jobs:
       parapyCloudAddress: '$(PARAPY_CLOUD_URL)'
       serviceAccountIdentifier: '$(PARAPY_SERVICE_ACCOUNT_CLIENT_ID)'
       serviceAccountSecret: '$(PARAPY_SERVICE_ACCOUNT_SECRET)'
-      parapyAppId: '$(PARAPY_APP_ID)'
+      parapyAppIdentifier: '$(PARAPY_APP_ID)'
       parapyAppVersion: '${{ parameters.version }}'
       deploy: '${{ parameters.deploy }}'
 ```
