@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "parapy-tools",
     "name": "ParaPy Cloud Tools",
-    "version": "0.0.40",
+    "version": "1.0.1",
     "publisher": "ParaPy",
     "targets": [
         {
@@ -15,6 +15,7 @@
     "icons": {
         "default": "images/parapy.jpg"        
     },
+    "public": true,
     "branding": {
         "theme": "light"
     },

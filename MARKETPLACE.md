@@ -85,3 +85,5 @@ jobs:
       parapyAppVersion: '${{ parameters.version }}'
       deploy: '${{ parameters.deploy }}'
 ```
+
+Pleae find extensive information on each input parameter in the [ParaPy pipeline documentation](https://parapy.nl/docs/cloud/latest/application_developer/cicd_pipelines.html#pipeline-parameters).
