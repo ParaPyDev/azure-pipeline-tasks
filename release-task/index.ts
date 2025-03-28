@@ -18,8 +18,8 @@ const { exec } = require("child_process");
     // and that python is installed on the machine (for example with the UsePythonVersion task: https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/use-python-version-v0)
 
     await runCommandsOrThrow([
-            'pip install --upgrade pip',
-            `pip install parapy-cloud-cli${parapyCloudCLIVersion} --index-url https://${ parapyPyPIUsername }:${ parapyPyPIPassword }@${ parapyPyPIAddress }/simple/`,
+            'pip install --upgrade pip --no-input',
+            `pip install parapy-cloud-cli${parapyCloudCLIVersion} --index-url https://${ parapyPyPIUsername }:${ parapyPyPIPassword }@${ parapyPyPIAddress }/simple/ --no-input`,
             `parapy cloud app release . --url ${ parapyCloudAddress } --client-id ${ serviceAccountIdentifier } --secret ${ serviceAccountSecret } --version ${ parapyAppVersion } --id ${ parapyAppIdentifier } ${deploy ? " --deploy": "" }`
         ]);
  }

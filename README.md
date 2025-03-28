@@ -19,7 +19,7 @@ Prerequisites:
 
 Install:
 
-`cd test-task; npm install; tsc; cd .. ; cd release-task ; npm install; cd ..`
+`cd test-task; npm install; tsc; cd .. ; cd release-task ; npm install; tsc; cd ..`
 
 Deploy:
 
