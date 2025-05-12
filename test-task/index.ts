@@ -13,11 +13,11 @@ const { exec } = require("child_process");
 
     await runCommandsOrThrow([
         'sudo hostname ' + licenseKey,
-        'pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-20.04 "wxPython~=4.2.1"',
+        'pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-22.04 "wxPython==4.2.1" --no-input',
         'sudo apt-get update',
-        'sudo apt-get install -y --no-install-recommends build-essential cmake libdouble-conversion3 libgfortran4 libglu1-mesa libopengl0 libqt5core5a libqt5gui5 libqt5help5 libqt5opengl5 libqt5printsupport5 libqt5svg5 libqt5x11extras5 libqt5xml5 libsdl1.2debian libsdl2-2.0-0 libssl-dev libssl1.1 libtbb2',
-        'pip install --upgrade pip',
-        `pip install -r requirements-test.txt --index-url https://${ parapyPyPIUsername }:${ parapyPyPIPassword }@${ parapyPyPIAddress }/simple/`,
+        'sudo apt-get install -y --no-install-recommends build-essential cmake libdouble-conversion3 libquadmath0 libglu1-mesa libopengl0 libpcre2-32-0 libsdl-image1.2 libsdl1.2debian libsdl2-2.0-0 libtbbmalloc2 libwxgtk3.0-gtk3-dev libxtst6 locales xfonts-base xfonts-encodings xfonts-scalable xfonts-utils xvfb',
+        'pip install --upgrade pip --no-input',
+        `pip install -r requirements-test.txt --index-url https://${ parapyPyPIUsername }:${ parapyPyPIPassword }@${ parapyPyPIAddress }/simple/ --no-input`,
         `export PARAPY_LIC=${ licenseCertificate };export PARAPY_HEADLESS=true;pytest`]
     )
 

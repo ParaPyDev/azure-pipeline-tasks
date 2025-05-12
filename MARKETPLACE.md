@@ -8,7 +8,7 @@ This Azure extension provides Azure Pipeline tasks, provided by [ParaPy](https:/
 
 - Request the `ParaPy Cloud Tools` extension through [support@parapy.nl](support@parapy.nl) or find the ParaPy Cloud Tools extension in the Marketplace.
 - Accept the `ParaPy Cloud Tools` extension in Azure Devops.
-- Utilize the provided tasks in your Azure pipelines. Please run on a `ubuntu 20.4` machine.
+- Utilize the provided tasks in your Azure pipelines. Please run on a `ubuntu 22.04` machine.
 
 ## Example pipelines utilizing this extension
 
@@ -30,7 +30,7 @@ parameters:
 jobs:
 - job: Test
   pool:
-    vmImage: ubuntu-20.04
+    vmImage: ubuntu-22.04
 
   steps:
   - checkout: self
@@ -64,7 +64,7 @@ parameters:
 jobs:
 - job: Release
   pool:
-    vmImage: ubuntu-20.04
+    vmImage: ubuntu-22.04
 
   steps:
   - checkout: self
