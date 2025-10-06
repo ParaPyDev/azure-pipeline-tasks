@@ -2,8 +2,7 @@ import tl = require('azure-pipelines-task-lib/task');
 const { exec } = require("child_process");
 
  async function run() {
-    let parapyPyPIAddress: string | undefined = tl.getInput('parapyPyPIAddress', false);
-    parapyPyPIAddress = parapyPyPIAddress ? parapyPyPIAddress : "pypi.parapy.nl";
+    const parapyPyPIAddress: string | undefined = tl.getInput('parapyPyPIAddress', false);
     const parapyPyPIUsername: string | undefined = tl.getInput('parapyPyPIUsername', true);
     const parapyPyPIPassword: string | undefined = tl.getInput('parapyPyPIPassword', true);
     const parapyCloudAddress: string | undefined = tl.getInput('parapyCloudAddress');

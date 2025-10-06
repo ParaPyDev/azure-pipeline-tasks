@@ -4,8 +4,7 @@ const { exec } = require("child_process");
  async function run() {
     const licenseKey: string | undefined = tl.getInput('licenseKey1', true);
     const licenseCertificate: string | undefined = tl.getInput('licenseKey2', true)
-    let parapyPyPIAddress: string | undefined = tl.getInput('parapyPyPIAddress', false);
-    parapyPyPIAddress = parapyPyPIAddress ? parapyPyPIAddress : "pypi.parapy.nl";
+    const parapyPyPIAddress: string | undefined = tl.getInput('parapyPyPIAddress', false);
     const parapyPyPIUsername: string | undefined = tl.getInput('parapyPyPIUsername', true);
     const parapyPyPIPassword: string | undefined = tl.getInput('parapyPyPIPassword', true);
     // this task assumes the ParaPy application code is already cloned and resides in the current folder
