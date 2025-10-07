@@ -4,8 +4,7 @@ const { exec } = require("child_process");
  async function run() {
     const licenseKey: string | undefined = tl.getInput('licenseKey1', true);
     const licenseCertificate: string | undefined = tl.getInput('licenseKey2', true)
-    let parapyPyPIAddress: string | undefined = tl.getInput('parapyPyPIAddress', false);
-    parapyPyPIAddress = parapyPyPIAddress ? parapyPyPIAddress : "pypi.parapy.nl";
+    const parapyPyPIAddress: string | undefined = tl.getInput('parapyPyPIAddress', false);
     const parapyPyPIUsername: string | undefined = tl.getInput('parapyPyPIUsername', true);
     const parapyPyPIPassword: string | undefined = tl.getInput('parapyPyPIPassword', true);
     // this task assumes the ParaPy application code is already cloned and resides in the current folder
@@ -13,9 +12,8 @@ const { exec } = require("child_process");
 
     await runCommandsOrThrow([
         'sudo hostname ' + licenseKey,
-        'pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-22.04 "wxPython==4.2.1" --no-input',
         'sudo apt-get update',
-        'sudo apt-get install -y --no-install-recommends build-essential cmake libdouble-conversion3 libquadmath0 libglu1-mesa libopengl0 libpcre2-32-0 libsdl-image1.2 libsdl1.2debian libsdl2-2.0-0 libtbbmalloc2 libwxgtk3.0-gtk3-dev libxtst6 locales xfonts-base xfonts-encodings xfonts-scalable xfonts-utils xvfb',
+        'sudo apt-get install -y --no-install-recommends libsm6 libxrender1 libdouble-conversion3 libquadmath0 libglu1-mesa libopengl0 libpcre2-32-0 libsdl-image1.2 libsdl1.2debian libsdl2-2.0-0 libtbbmalloc2 libxtst6 locales xfonts-base xfonts-encodings xfonts-scalable xfonts-utils xvfb',
         'pip install --upgrade pip --no-input',
         `pip install -r requirements-test.txt --index-url https://${ parapyPyPIUsername }:${ parapyPyPIPassword }@${ parapyPyPIAddress }/simple/ --no-input`,
         `export PARAPY_LIC=${ licenseCertificate };export PARAPY_HEADLESS=true;pytest`]

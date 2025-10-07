@@ -1,18 +1,24 @@
-# ParaPy Cloud Tools extension
+# ParaPy Cloud Tools Extension
 
 <a href="https://parapy.nl" rel="ParaPy">![ParaPy](https://s3-eu-west-1.amazonaws.com/parapy-cache/wp-content/uploads/2016/12/22134017/Logo_margin.png)</a>
 
-This Azure extension provides Azure Pipeline tasks, provided by [ParaPy](https://parapy.nl), to aid in implementing Continuous integration and deployment for your ParaPy applications.
+This Azure extension provides Azure Pipeline tasks, provided by
+[ParaPy](https://parapy.nl), to aid in implementing Continuous integration and
+deployment for your ParaPy applications.
 
 ## Installation
 
-- Request the `ParaPy Cloud Tools` extension through [support@parapy.nl](support@parapy.nl) or find the ParaPy Cloud Tools extension in the Marketplace.
+- Request the `ParaPy Cloud Tools` extension through
+  [support@parapy.nl](support@parapy.nl) or find the ParaPy Cloud Tools
+  extension in the Marketplace.
 - Accept the `ParaPy Cloud Tools` extension in Azure Devops.
-- Utilize the provided tasks in your Azure pipelines. Please run on a `ubuntu 22.04` machine.
+- Utilize the provided tasks in your Azure pipelines. Please run on a
+ `ubuntu 22.04` or `ubuntu 24.04` machine.
 
-## Example pipelines utilizing this extension
+## Examples
 
 To test the application:
+
 ```yaml
 trigger:
 - '*'
@@ -21,16 +27,18 @@ parameters:
 - name: pythonVersion
   displayName: Python version
   type: string
-  default: '3.11'
+  default: '3.13'
   values:
   - '3.9'
   - '3.10'
   - '3.11'
+  - '3.12'
+  - '3.13'
 
 jobs:
 - job: Test
   pool:
-    vmImage: ubuntu-22.04
+    vmImage: ubuntu-24.04
 
   steps:
   - checkout: self
@@ -49,6 +57,7 @@ jobs:
 ```
 
 To release the application:
+
 ```yaml
 trigger: none
 
@@ -64,15 +73,15 @@ parameters:
 jobs:
 - job: Release
   pool:
-    vmImage: ubuntu-22.04
+    vmImage: ubuntu-24.04
 
   steps:
   - checkout: self
 
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.11'
-    displayName: 'Use Python 3.11'
+      versionSpec: '3.13'
+    displayName: 'Use Python 3.13'
 
   - task: ParaPy.parapy-tools.release-task.Release@1
     inputs:
