@@ -31,7 +31,7 @@ const { exec } = require("child_process");
     }
     // normally use the new tool
     await runCommandsOrThrow([
-        `pip install parapy-cli --index-url https://${ parapyPyPIUsername }:${ parapyPyPIPassword }@${ parapyPyPIAddress }/simple/ --no-input`,
+        `pip install parapy-cli==1.0.1.dev0+1a4869f --index-url https://${ parapyPyPIUsername }:${ parapyPyPIPassword }@${ parapyPyPIAddress }/simple/ --no-input`,
         `parapy app release . --url ${ parapyCloudAddress } -c ${ serviceAccountIdentifier } -s ${ serviceAccountSecret } -v ${ parapyAppVersion } --id ${ parapyAppIdentifier } --no-input`
     ]);
  }
