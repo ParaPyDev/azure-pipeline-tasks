@@ -12,15 +12,22 @@ This Azure extension provides Azure Pipeline tasks, provided by [ParaPy](https:/
 
 ## Development of the extension
 
-Prerequisites:
+### Prerequisites:
 
 - Install [Developer dependencies prerequisites](https://learn.microsoft.com/en-us/azure/devops/extend/develop/add-build-task?view=azure-devops).
 - Install [tfx-cli](https://learn.microsoft.com/en-us/azure/devops/extend/develop/add-build-task?view=azure-devops#4-package-your-extension)
 
-Install:
+### Run locally:
+- Create a `local.env` file by copying `./scripts/local.env.template` and completing the assignments.
+- ```shell
+  ./scripts/runlocalazure.sh --task-dir <task directory> --app-dir <app directory> --env <local.env location>
+  ```
 
-`cd test-task; npm install; tsc; cd .. ; cd release-task ; npm install; tsc; cd ..`
-
-Deploy:
-
-`tfx extension publish --manifest-globs vss-extension.json`
+### Publish:
+- Make sure you are added as a publisher.
+- Create a PAT on azure devops.
+- Manually bump all relevant versions.
+- Create a `publish.env` file by copying `./scripts/publish.env.template` and completing the assignments.
+- ```shell
+  ./scripts/publishazure.sh --env <publish.env location> --public
+  ```
