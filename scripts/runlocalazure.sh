@@ -33,8 +33,13 @@ export INPUT_SERVICEACCOUNTIDENTIFIER=$SERVICE_ACCOUNT_IDENTIFIER
 export INPUT_SERVICEACCOUNTSECRET=$SERVICE_ACCOUNT_SECRET
 export INPUT_PARAPYAPPIDENTIFIER=$PARAPY_APP_IDENTIFIER
 export INPUT_PARAPYAPPVERSION=$PARAPY_APP_VERSION
+export INPUT_LICENSEKEY1=$PARAPY_LICENSE_KEY_1
+export INPUT_LICENSEKEY2=$PARAPY_LICENSE_KEY_2
 
 pushd $task_dir
+    # install dependencies
+    npm install
+
     # create temp venv and activate
     python3 -m venv venv
     source venv/bin/activate
@@ -49,4 +54,7 @@ pushd $task_dir
 
     # clean up venv
     rm -rf venv
+
+    # clean up node_modules
+    rm -rf node_modules
 popd
