@@ -1,6 +1,5 @@
-**/*.vsix
-**/index.js
-**/*venv*
-**/*.env
 **/.taskkey
+**/*.vsix
 **/node_modules
+**/*.env
+**/index.js
