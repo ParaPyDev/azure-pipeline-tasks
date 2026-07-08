@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "parapy-tools",
     "name": "ParaPy Cloud Tools",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "publisher": "ParaPy",
     "targets": [
         {

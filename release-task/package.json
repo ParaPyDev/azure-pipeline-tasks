@@ -1,6 +1,6 @@
 {
   "name": "azure-task",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "azure-pipelines-task-lib": "^4.16.0"
+    "azure-pipelines-task-lib": "^5.277.0"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.7",
