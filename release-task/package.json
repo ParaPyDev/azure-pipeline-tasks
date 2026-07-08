@@ -10,7 +10,7 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "azure-pipelines-task-lib": "^4.16.0"
+    "azure-pipelines-task-lib": "^5.277.0"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.7",
