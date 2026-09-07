@@ -10,26 +10,13 @@ const { exec } = require("child_process");
     const serviceAccountSecret: string | undefined = tl.getInput('serviceAccountSecret', true);
     const parapyAppIdentifier: string | undefined = tl.getInput('parapyAppIdentifier', true);
     const parapyAppVersion: string | undefined = tl.getInput('parapyAppVersion', true);
-    const deploy: boolean = tl.getBoolInput('deploy', false);
-    let parapyCloudCLIVersion: string | undefined = tl.getInput('parapyCloudCLIVersion', false);
-    parapyCloudCLIVersion = parapyCloudCLIVersion ? "~=" + parapyCloudCLIVersion : ""
     // this task assumes the ParaPy application code is already cloned and resides in the current folder
     // and that python is installed on the machine (for example with the UsePythonVersion task: https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/use-python-version-v0)
-    let parapyCloudVersion: string | undefined = tl.getInput('parapyCloudVersion', false);
 
     await runCommandsOrThrow([
         'pip install --upgrade pip --no-input',
     ]);
 
-    // special case, if Cloud version is 0.X.Y, then use the old tool to deploy
-    if (parapyCloudVersion && parseInt(parapyCloudVersion.split(".")[0]) < 1) {
-        await runCommandsOrThrow([
-            `pip install parapy-cloud-cli${parapyCloudCLIVersion} --index-url https://${ parapyPyPIUsername }:${ parapyPyPIPassword }@${ parapyPyPIAddress }/simple/ --no-input`,
-            `parapy cloud app release . --url ${ parapyCloudAddress } --client-id ${ serviceAccountIdentifier } --secret ${ serviceAccountSecret } --version ${ parapyAppVersion } --id ${ parapyAppIdentifier } ${deploy ? " --deploy": "" }`
-        ]);
-        return
-    }
-    // normally use the new tool
     await runCommandsOrThrow([
         `pip install parapy-cli --index-url https://${ parapyPyPIUsername }:${ parapyPyPIPassword }@${ parapyPyPIAddress }/simple/ --no-input`,
         `parapy app release . --url ${ parapyCloudAddress } -c ${ serviceAccountIdentifier } -s ${ serviceAccountSecret } -v ${ parapyAppVersion } --id ${ parapyAppIdentifier } --no-input`
