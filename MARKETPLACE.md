@@ -89,3 +89,5 @@ jobs:
       parapyAppIdentifier: '$(PARAPY_APP_ID)'
       parapyAppVersion: '${{ parameters.version }}'
 ```
+
+Please find extensive information on each input parameter in the [ParaPy pipeline documentation](https://parapy.nl/docs/get-started/deploy/azurepipelines/).
