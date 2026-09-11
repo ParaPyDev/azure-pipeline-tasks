@@ -27,13 +27,13 @@ parameters:
 - name: pythonVersion
   displayName: Python version
   type: string
-  default: '3.13'
+  default: '3.14'
   values:
-  - '3.9'
   - '3.10'
   - '3.11'
   - '3.12'
   - '3.13'
+  - '3.14'
 
 jobs:
 - job: Test
@@ -65,10 +65,6 @@ parameters:
 - name: version
   displayName: Application version to release
   type: string
-- name: deploy
-  displayName: Whether to deploy the application if the release is successful
-  type: boolean
-  default: false
 
 jobs:
 - job: Release
@@ -80,8 +76,8 @@ jobs:
 
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.13'
-    displayName: 'Use Python 3.13'
+      versionSpec: '3.14'
+    displayName: 'Use Python 3.14'
 
   - task: ParaPy.parapy-tools.release-task.Release@1
     inputs:
@@ -92,7 +88,6 @@ jobs:
       serviceAccountSecret: '$(PARAPY_SERVICE_ACCOUNT_SECRET)'
       parapyAppIdentifier: '$(PARAPY_APP_ID)'
       parapyAppVersion: '${{ parameters.version }}'
-      deploy: '${{ parameters.deploy }}'
 ```
 
-Please find extensive information on each input parameter in the [ParaPy pipeline documentation](https://parapy.nl/docs/cloud/latest/application_developer/cicd_pipelines.html#pipeline-parameters).
+Please find extensive information on each input parameter in the [ParaPy pipeline documentation](https://parapy.nl/docs/get-started/deploy/azurepipelines/).
