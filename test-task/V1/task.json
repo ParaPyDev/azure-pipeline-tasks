@@ -1,0 +1,59 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "42b69156-04c4-46d3-9f74-ddc8933a5aa0",
+    "name": "Test",
+    "friendlyName": "Test Parapy Application",
+    "description": "",
+    "helpMarkDown": "",
+    "category": "Utility",
+    "author": "ParaPy",
+    "version": {
+        "Major": 1,
+        "Minor": 3,
+        "Patch": 0
+    },
+    "instanceNameFormat": "Test ParaPy application",
+    "inputs": [
+        {
+            "name": "licenseKey1",
+            "type": "string",
+            "label": "Parapy License 1",
+            "required": true,
+            "helpMarkDown": "license key 1, a.k.a. PARAPY_LICENSE_KEY_1,  necessary to use ParaPy"
+        },
+        {
+            "name": "licenseKey2",
+            "type": "string",
+            "label": "Parapy License 2",
+            "required": true,
+            "helpMarkDown": "license key 2, a.k.a. PARAPY_LICENSE_KEY_2, necessary to use ParaPy"
+        },
+        {
+            "name": "parapyPyPIAddress",
+            "type": "string",
+            "label": "ParaPy PyPI address",
+            "required": false,
+            "defaultValue": "pypi.parapy.nl",
+            "helpMarkDown": "ParaPy PyPI python repository at which to obtain the ParaPy dependencies"
+        },
+        {
+            "name": "parapyPyPIUsername",
+            "type": "string",
+            "label": "Parapy PyPI Username",
+            "required": true,
+            "helpMarkDown": "user name for the ParaPy PyPI package repository"
+        },
+        {
+            "name": "parapyPyPIPassword",
+            "type": "string",
+            "label": "Parapy PyPI Password",
+            "required": true,
+            "helpMarkDown": "password for the ParaPy PyPI package repository"
+        }
+    ],
+    "execution": {
+        "Node20_1": {
+            "target": "index.js"
+        }
+    }
+    }

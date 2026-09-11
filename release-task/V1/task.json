@@ -1,0 +1,101 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "42b69156-04c4-46d3-9f74-ddc8933a5aa9",
+    "name": "Release",
+    "friendlyName": "Release Parapy Application",
+    "description": "",
+    "helpMarkDown": "",
+    "category": "Utility",
+    "author": "ParaPy",
+    "version": {
+        "Major": 1,
+        "Minor": 2,
+        "Patch": 2
+    },
+    "instanceNameFormat": "Release ParaPy application version $(parapyAppVersion)",
+    "inputs": [
+        {
+            "name": "parapyPyPIAddress",
+            "type": "string",
+            "label": "ParaPy PyPI address",
+            "required": false,
+            "defaultValue": "pypi.parapy.nl",
+            "helpMarkDown": "ParaPy PyPI python repository at which to obtain the ParaPy dependencies"
+        },
+        {
+            "name": "parapyPyPIUsername",
+            "type": "string",
+            "label": "Parapy PyPI Username",
+            "required": true,
+            "helpMarkDown": "user name for the ParaPy PyPI package repository"
+        },
+        {
+            "name": "parapyPyPIPassword",
+            "type": "string",
+            "label": "Parapy PyPI Password",
+            "required": true,
+            "helpMarkDown": "password for the ParaPy PyPI package repository"
+        },
+        {
+            "name": "parapyCloudAddress",
+            "type": "string",
+            "label": "Parapy Cloud Address",
+            "required": true,
+            "helpMarkDown": "ParaPyCloud address that the Application should release to, this is likely your ParaPy company address, e.g. <company-name>.parapy.nl"
+        },
+        {
+            "name": "serviceAccountIdentifier",
+            "type": "string",
+            "label": "Service Account Identifier",
+            "required": true,
+            "helpMarkDown": "ParaPy service account identifier that has access to your application release within ParaPy Cloud"
+        },
+        {
+            "name": "serviceAccountSecret",
+            "type": "string",
+            "label": "Service Account Secret",
+            "required": true,
+            "helpMarkDown": "ParaPy service account secret of the ParaPy service account identifier supplied"
+        },
+        {
+            "name": "parapyAppIdentifier",
+            "type": "string",
+            "label": "Parapy Application identifier",
+            "required": true,
+            "helpMarkDown": "ParaPy Cloud application identifier of your ParaPy application"
+        },
+        {
+            "name": "parapyAppVersion",
+            "type": "string",
+            "label": "Parapy Application Version",
+            "required": true,
+            "helpMarkDown": "The version of your application release, (e.g. 0.1.0, [semantic versioning](https://semver.org/)"
+        },
+        {
+            "name": "deploy",
+            "type": "boolean",
+            "label": "Deploy Application after Release",
+            "required": true,
+            "helpMarkDown": "Whether to deploy after the release of your application is successful"
+        },
+        {
+            "name": "parapyCloudCLIVersion",
+            "type": "string",
+            "label": "[DEPRECATED: use parapyCloudVersion instead] The parapy Cloud CLI version to talk to your ParaPy Cloud",
+            "required": false,
+            "helpMarkDown": "Version of parapy cloud cli, keep empty for the latest"
+        },
+        {
+            "name": "parapyCloudVersion",
+            "type": "string",
+            "label": "The correct parapy Cloud version to talk to your ParaPy Cloud",
+            "required": false,
+            "helpMarkDown": "Version of parapy Cloud, keep empty if you are targeting the latest"
+        }
+    ],
+    "execution": {
+        "Node20_1": {
+            "target": "index.js"
+        }
+    }
+}

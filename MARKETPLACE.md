@@ -79,7 +79,7 @@ jobs:
       versionSpec: '3.14'
     displayName: 'Use Python 3.14'
 
-  - task: ParaPy.parapy-tools.release-task.Release@1
+  - task: ParaPy.parapy-tools.release-task.Release@2
     inputs:
       parapyPyPIUsername: '$(PARAPY_PYPI_USERNAME)'
       parapyPyPIPassword: '$(PARAPY_PYPI_PASSWORD)'
